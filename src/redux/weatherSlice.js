@@ -13,7 +13,6 @@ const handleRejected = (state, action) => {
 const slice = createSlice({
   name: "weather",
   initialState: {
-    city: null,
     items: [],
     loading: false,
     error: null,
@@ -24,7 +23,7 @@ const slice = createSlice({
       .addCase(getWeatherByCity.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.items = action.payload.list;
+        state.items = action.payload;
       })
       .addCase(getWeatherByCity.rejected, handleRejected);
   },
