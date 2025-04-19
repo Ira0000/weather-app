@@ -16,12 +16,20 @@ export default function WeatherForecast() {
   const error = useSelector(selectError);
 
   if (loading) return <Loader />;
-  if (error)
+  if (error && error.includes("404"))
     return (
-      <div>
-        <p>No weather data to show</p>
+      <div className="text-white">
+        <p>City is not found</p>
       </div>
     );
+  if (error) {
+    return (
+      <div className="text-white">
+        <p>Sorry, something went wrong, please try again later!</p>
+      </div>
+    );
+  }
+
   if (
     weatherData &&
     weatherData.city &&
