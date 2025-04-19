@@ -6,10 +6,11 @@ import {
 } from "../../redux/weatherSlice";
 import Loader from "../Loader";
 import { WiCelsius } from "react-icons/wi";
+import ForecastChart from "./ForecastChart";
 
 export default function WeatherForecast() {
   const weatherData = useSelector(selectWeatherByCity);
-  console.log(weatherData);
+  // console.log(weatherData);
 
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
@@ -52,6 +53,7 @@ export default function WeatherForecast() {
             />
           </div>
         </div>
+        <ForecastChart weatherData={weatherData} />
       </div>
     );
   return (
