@@ -1,10 +1,10 @@
-import SearchBar from "../components/SearchBar/SearchBar";
-import WeatherForecast from "../components/WeatherForecast/WeatherForecast";
+import SearchBar from '../components/SearchBar/SearchBar.jsx';
+import WeatherForecast from '../components/WeatherForecast/WeatherForecast.jsx';
 
 export default function HomePage() {
   return (
-    <div className="h-screen flex gap-10 flex-col md-flex-row p-5 bg-[url('/public/home.jpg')] bg-cover bg-no-repeat">
-      <div className="flex flex-col bg-blue-normal/75 rounded-[10px] px-5 py-7">
+    <div className="flex h-screen flex-col gap-10 bg-[url('/public/home.jpg')] bg-cover bg-no-repeat p-5 md:flex-row">
+      <div className='flex flex-col rounded-[10px] bg-blue-normal/75 px-5 py-7'>
         <SearchBar />
         <WeatherForecast />
       </div>
