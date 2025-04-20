@@ -41,6 +41,7 @@ export default function ForecastChart({ weatherData }) {
       const hour = date.toLocaleTimeString(undefined, {
         hour: 'numeric',
         minute: '2-digit',
+        hour12: false,
       });
 
       return (
