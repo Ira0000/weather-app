@@ -1,7 +1,29 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import { useEffect, useState } from 'react';
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts';
 
 export default function ForecastChart({ weatherData }) {
+  const [chartWidth, setChartWidth] = useState(600);
+  const [chartHeight, setChartHeight] = useState(350);
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleResize = () => {
+    const width = window.innerWidth;
+    if (width >= 1024) {
+      setChartWidth(800);
+      setChartHeight(400);
+    } else {
+      setChartWidth(600);
+      setChartHeight(350);
+    }
+  };
+
   const data = weatherData.list.map((day) => ({
     date: day.dt,
     temperature: day.main.temp,
@@ -67,15 +89,15 @@ export default function ForecastChart({ weatherData }) {
   }
 
   return (
-    <div className='chart-container overflow-x-auto'>
+    <div className='chart-container overflow-x-auto w-full  md:flex md:justify-center'>
       <BarChart
         left={0}
-        width={600}
-        height={350}
+        width={chartWidth}
+        height={chartHeight}
         data={data}
         margin={{
           top: 10,
-          right: 10,
+          right: 0,
           left: 0,
           bottom: 20,
         }}
@@ -84,7 +106,7 @@ export default function ForecastChart({ weatherData }) {
         <XAxis dataKey='date' interval={0} tick={<CustomXLabel />} height={40} />
         <YAxis unit='°C' tick={{ fontSize: 10 }} width={32} />
         <Tooltip content={<CustomTooltip />} />
-        <Legend />
+        <Legend align='left' />
         <Bar
           name='Temperature'
           dataKey='temperature'

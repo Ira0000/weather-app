@@ -27,7 +27,7 @@ export default function WeatherForecast() {
 
   if (weatherData && weatherData.city && weatherData.list && weatherData.list.length > 0)
     return (
-      <div className='text-white'>
+      <section className='text-white'>
         <h2 className=' mb-2 text-md'>{weatherData?.city.name}</h2>
         <p className='mb-2 text-sm'>{weatherData.list[0].dt_txt.slice(0, 16)}</p>
         <div className='flex flex-col'>
@@ -46,7 +46,7 @@ export default function WeatherForecast() {
           </div>
         </div>
         <ForecastChart weatherData={weatherData} />
-      </div>
+      </section>
     );
   return (
     <div className='text-center text-gray-400'>

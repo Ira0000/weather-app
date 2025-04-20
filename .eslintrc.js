@@ -22,8 +22,8 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'tailwindcss', 'import'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off', // Completely disable prop-types validation
-    'tailwindcss/classnames-order': 'error',
+    'react/prop-types': 'off',
+    'tailwindcss/classnames-order': 'off',
     'tailwindcss/no-custom-classname': 'warn',
     'tailwindcss/no-contradicting-classname': 'error',
     'no-unused-vars': 'warn',

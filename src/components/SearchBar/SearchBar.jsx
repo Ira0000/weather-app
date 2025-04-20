@@ -17,7 +17,7 @@ export default function SearchBar() {
   };
 
   return (
-    <section className='bg-transparent '>
+    <section className='bg-transparent max-w-screen-xs '>
       <form className='mb-10  flex justify-between gap-4' onSubmit={handleSubmit(onSubmit)}>
         <div className='flex w-full flex-col gap-2'>
           <input
@@ -25,11 +25,11 @@ export default function SearchBar() {
             className='bg-transparent text-sm text-blue-light focus:outline-none'
             {...register('city', { required: true })}
           />
-          {errors.city && <span>This field is required</span>}
           <hr className='w-full border-blue-light ' />
+          {errors.city && <span className='text-xs text-error'>This field is required</span>}
         </div>
         <button
-          className='cursor-pointer rounded-[5px] bg-white p-2 text-xs text-blue-dark'
+          className='cursor-pointer rounded-[5px] bg-white p-2 text-xs text-blue-dark hover:shadow-lg transition-shadow duration-300'
           type='submit'
         >
           Search
