@@ -23,7 +23,7 @@ A React application that allows users to search for cities and view temperature 
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/weather-forecast-app.git
+git clone git@github.com:Ira0000/weather-app.git
 
 # Navigate to project directory
 cd weather-app
